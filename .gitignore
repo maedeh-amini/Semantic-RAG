@@ -1,0 +1,20 @@
+from src.data_loader import load_all_documents
+from src.embedding import EmbeddingPipeline
+from src.vectorstore import FaissVectorStore
+
+if __name__ == "__main__":
+    print("[INFO] Rebuilding FAISS vector store from scratch")
+
+    # 1. Load documents (HF dataset only, no PDFs)
+    documents = load_all_documents("data")
+    print(f"[INFO] Loaded {len(documents)} documents")
+
+    # 2. Chunk + embed
+    emb_pipe = EmbeddingPipeline()
+    chunks = emb_pipe.chunk_documents(documents)
+
+    # 3. Build FAISS
+    store = FaissVectorStore("faiss_store")
+    store.build_from_documents(chunks)
+
+    print("[SUCCESS] FAISS store rebuilt successfully")

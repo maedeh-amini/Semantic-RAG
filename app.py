@@ -12,7 +12,7 @@ if __name__ == "__main__":
     # print(store.query("What is Knowledge Graph?", top_k=3))
 
     rag_search = RAGSearch()
-    query = "What is Knowledge Graph?"
+    query = "How can I place an online order?"
     summary = rag_search.search_and_summarize(query, top_k=3)
     print("Summary:", summary)
     

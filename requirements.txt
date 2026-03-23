@@ -10,3 +10,16 @@ langchain-groq
 python-dotenv
 typesense
 langchain_huggingface
+datasets
+
+pytest # from RAGAS tutorial
+pytest-asyncio
+ragas
+requests
+
+bert-score
+
+deepeval
+ollama
+
+langchain-openai
